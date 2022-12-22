@@ -18,4 +18,8 @@ impl Context {
     pub async fn conn(&self) -> Result<PooledConnection> {
         Ok(self.pl.acquire().await?)
     }
+
+    pub fn say_hello(&self) -> String {
+        String::from("Hello World")
+    }
 }
