@@ -10,6 +10,7 @@ impl Query {
     }
 
     fn hello(context: &Context, number: i32, word: String) -> String {
+        std::thread::sleep(std::time::Duration::from_secs(15));
         let output = format!("my word is {}, and number is {}", word, number);
         return output;
     }
