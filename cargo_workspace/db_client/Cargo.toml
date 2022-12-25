@@ -9,3 +9,5 @@ base64 = "0.13"
 sqlx = { version = "0.6.2", default-features = false, features = ["runtime-tokio-native-tls" , "postgres", "macros", "offline", "chrono", "migrate"] }
 dotenv = "0.15.0"
 lazy_static = "1.4.0"
+uuid = { version = "1", features = ["v4"] }
+

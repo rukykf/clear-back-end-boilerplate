@@ -13,7 +13,6 @@ impl Context {
     pub fn new(pl: Pool) -> Self {
         Self { pl }
     }
-
     /// Replaces pl.get()
     pub async fn conn(&self) -> Result<PooledConnection> {
         Ok(self.pl.acquire().await?)
