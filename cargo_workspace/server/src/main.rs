@@ -1,7 +1,7 @@
 use warp::Filter;
 
-mod domain;
-mod filters;
+use server::domain;
+use server::filters;
 
 #[tokio::main]
 async fn main() {

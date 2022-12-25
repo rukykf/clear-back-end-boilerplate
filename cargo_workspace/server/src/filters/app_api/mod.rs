@@ -2,14 +2,16 @@ use db_client::{self, Pool};
 use juniper::{EmptySubscription, RootNode};
 use warp::{filters::BoxedFilter, Filter};
 
+pub mod mutation;
+pub mod query;
+
 mod context;
-mod mutation;
-mod query;
+
 use context::Context;
 use mutation::Mutation;
 use query::Query;
 
-type Schema = RootNode<'static, Query, Mutation, EmptySubscription<Context>>;
+pub type Schema = RootNode<'static, Query, Mutation, EmptySubscription<Context>>;
 
 /// User graphql api endpoint, serves the app(s).
 pub fn app_api(pl: Pool) -> BoxedFilter<(impl warp::Reply,)> {

@@ -3,6 +3,13 @@ name = "server"
 version = "0.1.0"
 edition = "2018"
 
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+path = "src/main.rs"
+name = "server"
+
 [dependencies]
 db_client = {path = "../db_client"}
 env_logger = "0.9"

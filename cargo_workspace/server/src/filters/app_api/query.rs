@@ -27,12 +27,11 @@ impl Query {
         PhotoEntry {
             entry_id: entry_id,
             created_at: "".to_string(),
-            base64_image: "".to_string(),
+            base64_image: db_client::sample_base64(),
         }
     }
 
-    async fn hello(context: &Context, number: i32, word: String) -> String {
-        std::thread::sleep(std::time::Duration::from_secs(15));
-        format!("my word")
+    async fn dummy() -> bool {
+        true
     }
 }

@@ -7,7 +7,7 @@ pub struct Mutation;
 
 #[graphql_object(context = Context)]
 impl Mutation {
-    async fn create_new_entry(context: &Context, base64_image: String) -> bool {
+    async fn create_new_entry(context: &Context, base64_image: String) -> String {
         let date_time: DateTime<Local> = Local::now();
         let id = Uuid::new_v4();
 
@@ -21,7 +21,7 @@ impl Mutation {
         .await
         .unwrap();
 
-        true
+        id.to_string()
     }
 
     async fn delete_entry(context: &Context, entry_id: String) -> bool {
@@ -37,10 +37,5 @@ impl Mutation {
         .unwrap();
 
         true
-    }
-
-    fn hello_world(context: &Context, steps: i32, word: String) -> String {
-        context.start_me();
-        format!("My word {} is going {} steps", word, steps)
     }
 }
