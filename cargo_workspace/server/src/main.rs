@@ -1,6 +1,5 @@
 use warp::Filter;
 
-use server::domain;
 use server::filters;
 
 #[tokio::main]

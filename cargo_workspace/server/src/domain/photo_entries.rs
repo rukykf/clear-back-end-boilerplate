@@ -1,6 +1,4 @@
-use chrono::prelude::*;
 use juniper::GraphQLObject;
-use uuid::Uuid;
 
 #[derive(GraphQLObject)]
 #[graphql(description = "A user's photo entry")]

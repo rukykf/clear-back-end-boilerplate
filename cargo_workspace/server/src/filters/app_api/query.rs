@@ -1,33 +1,30 @@
 use super::context::Context;
 use crate::domain::PhotoEntry;
-use juniper::graphql_object;
+use juniper::{graphql_object, FieldResult};
 
 pub struct Query;
 
 #[graphql_object(context = Context)]
 impl Query {
-    async fn get_entries(context: &Context) -> Vec<PhotoEntry> {
-        let entries =
-            sqlx::query!(r#"SELECT entry_id, created_at, base64_image FROM photo_entries"#)
-                .fetch_all(&mut context.0.conn().await.unwrap())
-                .await
-                .unwrap()
-                .iter()
-                .map(|row| PhotoEntry {
-                    entry_id: row.entry_id.to_string(),
-                    created_at: row.created_at.to_string(),
-                    base64_image: row.base64_image.to_owned(),
-                })
-                .collect();
+    async fn get_entries(context: &Context) -> FieldResult<Vec<PhotoEntry>> {
+        let entries = db_client::photo_entries::get_photo_entries(&mut context.0.conn().await?)
+            .await?
+            .iter()
+            .map(|entry| PhotoEntry {
+                entry_id: entry.entry_id.to_string(),
+                created_at: entry.created_at.to_string(),
+                base64_image: entry.base64_image.to_owned(),
+            })
+            .collect();
 
-        entries
+        Ok(entries)
     }
 
-    async fn get_entry(context: &Context, entry_id: String) -> PhotoEntry {
-        PhotoEntry {
+    async fn get_entry(entry_id: String) -> FieldResult<PhotoEntry> {
+        Ok(PhotoEntry {
             entry_id: entry_id,
             created_at: "".to_string(),
             base64_image: test_utils::sample_base64_image(),
-        }
+        })
     }
 }
