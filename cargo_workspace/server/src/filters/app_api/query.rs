@@ -22,7 +22,7 @@ impl Query {
 
     async fn get_entry(entry_id: String) -> FieldResult<PhotoEntry> {
         Ok(PhotoEntry {
-            entry_id: entry_id,
+            entry_id,
             created_at: "".to_string(),
             base64_image: test_utils::sample_base64_image(),
         })

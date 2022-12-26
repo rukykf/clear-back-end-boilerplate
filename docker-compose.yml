@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile
     environment:
       - DATABASE_URL=postgres://postgres:mysecretpassword@db:5432/postgres
+      - APPLICATION_ENV=development
       - CARGO_HOME=/cargo_workspace/cargo
       - CARGO_TARGET_DIR=/cargo_workspace/target
     depends_on:
