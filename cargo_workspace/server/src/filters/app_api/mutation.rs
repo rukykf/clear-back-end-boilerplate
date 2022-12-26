@@ -51,6 +51,9 @@ impl Mutation {
         Ok(true)
     }
 
+    /// Should register a new user if the user with the given credentials does not exist yet
+    /// Will authenticate an existing user
+    /// After registering or authenticating the user, will return a valid auth token
     async fn get_auth_token(_username: String, _password: String) -> FieldResult<String> {
         Ok(test_utils::sample_auth_token())
     }
