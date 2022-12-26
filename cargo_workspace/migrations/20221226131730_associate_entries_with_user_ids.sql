@@ -1,0 +1,1 @@
+ALTER TABLE photo_entries ADD COLUMN user_id uuid NOT NULL REFERENCES users (user_id)

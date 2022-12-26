@@ -1,6 +1,6 @@
 use warp::Filter;
 
-mod filters;
+use server::filters;
 
 #[tokio::main]
 async fn main() {

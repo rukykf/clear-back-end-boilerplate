@@ -3,6 +3,13 @@ name = "server"
 version = "0.1.0"
 edition = "2018"
 
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+path = "src/main.rs"
+name = "server"
+
 [dependencies]
 db_client = {path = "../db_client"}
 env_logger = "0.9"
@@ -11,3 +18,12 @@ juniper_warp = "0.7"
 shrinkwraprs = "0.3.0"
 tokio = { version = "1", features = ["full"] }
 warp = "0.3"
+uuid = { version = "1", features = ["v4"] }
+base64 = "0.13"
+chrono = { version = "0.4.22", default-features = false, features = ["clock"] }
+sqlx = { version = "0.6.2", default-features = false, features = ["runtime-tokio-native-tls" , "postgres", "macros", "offline", "chrono", "migrate", "uuid"] }
+test_utils = {path = "../test_utils"}
+
+
+
+

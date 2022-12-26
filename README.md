@@ -26,3 +26,10 @@ The server will recompile on any source file changes.
 ## Database migrations
 
 Write timestamped sql files e.g.`20221214151701_example.sql` and then move them into the `cargo_workspace/migrations` directory. The server will reload and apply these migrations.
+
+
+## Seeding the database
+You now need to export a `APPLICATION_ENV` environment variable in order to run the application. Set `APPLICATION_ENV` to `development` in order to seed the test database with some sample data. Set the variable to any other value if you don't want to seed with test data.
+
+## Running Integration Tests
+Tests should work if you run `cargo test` after setting both the `DATABASE_URL` and `APPLICATION_ENV` variables.
