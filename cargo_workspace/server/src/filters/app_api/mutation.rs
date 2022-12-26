@@ -11,6 +11,8 @@ impl Mutation {
         let date_time: DateTime<Local> = Local::now();
         let id = Uuid::new_v4();
 
+        // Validate the provided base64_image
+
         sqlx::query!(
             r#"INSERT INTO photo_entries (entry_id, created_at, base64_image) Values ($1, $2, $3)"#,
             id,

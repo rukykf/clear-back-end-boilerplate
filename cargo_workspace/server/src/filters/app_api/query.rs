@@ -27,11 +27,7 @@ impl Query {
         PhotoEntry {
             entry_id: entry_id,
             created_at: "".to_string(),
-            base64_image: db_client::sample_base64(),
+            base64_image: test_utils::sample_base64_image(),
         }
-    }
-
-    async fn dummy() -> bool {
-        true
     }
 }

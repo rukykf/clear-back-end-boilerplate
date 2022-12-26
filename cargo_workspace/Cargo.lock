@@ -336,6 +336,7 @@ dependencies = [
  "dotenv",
  "lazy_static",
  "sqlx",
+ "test_utils",
  "uuid 1.2.2",
 ]
 
@@ -1567,6 +1568,7 @@ dependencies = [
  "juniper_warp",
  "shrinkwraprs",
  "sqlx",
+ "test_utils",
  "tokio",
  "uuid 1.2.2",
  "warp",
@@ -1822,6 +1824,10 @@ checksum = "2dfed899f0eb03f32ee8c6a0aabdb8a7949659e3466561fc0adf54e26d88c5f4"
 dependencies = [
  "winapi-util",
 ]
+
+[[package]]
+name = "test_utils"
+version = "0.1.0"
 
 [[package]]
 name = "thiserror"

@@ -5,9 +5,9 @@ use warp::{filters::BoxedFilter, Filter};
 pub mod mutation;
 pub mod query;
 
-mod context;
+pub mod context;
 
-use context::Context;
+pub use context::Context;
 use mutation::Mutation;
 use query::Query;
 

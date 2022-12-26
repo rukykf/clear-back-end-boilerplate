@@ -10,4 +10,4 @@ sqlx = { version = "0.6.2", default-features = false, features = ["runtime-tokio
 dotenv = "0.15.0"
 lazy_static = "1.4.0"
 uuid = { version = "1", features = ["v4"] }
-
+test_utils = {path = "../test_utils"}

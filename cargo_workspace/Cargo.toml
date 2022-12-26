@@ -1,2 +1,2 @@
 [workspace]
-members = ["server", "db_client"]
+members = ["server", "db_client", "test_utils"]
